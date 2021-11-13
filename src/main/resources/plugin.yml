@@ -1,0 +1,4 @@
+name: CupaTest
+version: '${project.version}'
+main: khoa.cupatest.CupaTest
+api-version: 1.17
