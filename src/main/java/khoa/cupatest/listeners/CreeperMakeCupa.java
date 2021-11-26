@@ -1,5 +1,6 @@
 package khoa.cupatest.listeners;
 
+import org.bukkit.Material;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Mob;
@@ -17,13 +18,12 @@ public class CreeperMakeCupa implements Listener {
 
         Player player = e.getPlayer();
         Mob mob = (Mob) e.getRightClicked();
-        //player.getInventory().getItemInMainHand();
-        //ItemStack itemStack =
-        if (mob.getType() == EntityType.CREEPER && mob.isAware()){
+        ItemStack item = player.getInventory().getItemInMainHand();
+        if (mob.getType() == EntityType.CREEPER && mob.isAware() && item.getType() == Material.CREEPER_HEAD){
             mob.setAware(false);
             player.sendMessage("Creeper false");
         }
-        else if (mob.getType() == EntityType.CREEPER && !mob.isAware()){
+        else if (mob.getType() == EntityType.CREEPER && !mob.isAware() && item.getType() == Material.MUSIC_DISC_CAT){
             mob.setAware(true);
             player.sendMessage("Creeper true");
         }
